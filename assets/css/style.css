@@ -1,0 +1,100 @@
+/* Variables para facilitar el cambio de colores (Modo Noche) */
+:root {
+    --bg-body: #f0f2f5;
+    --bg-card: #ffffff;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --primary-color: #007bff;
+    --secondary-bg: #e9ecef;
+}
+
+/* Clase que se activará con JavaScript */
+[data-theme="dark"] {
+    --bg-body: #18191a;
+    --bg-card: #242526;
+    --text-main: #e4e6eb;
+    --text-sub: #b0b3b8;
+    --secondary-bg: #3a3b3c;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column; /* Para alinear botón y tarjeta */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.4s ease;
+}
+
+.card {
+    background-color: var(--bg-card);
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: background-color 0.4s ease;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 20px;
+}
+
+.profile-img {
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid rgba(255,255,255,0.3);
+    /* Para usar tu foto: background-image: url('../assets/tu-foto.jpg'); */
+}
+
+.container {
+    padding: 20px;
+    color: var(--text-main);
+}
+
+.skills span {
+    background: var(--secondary-bg);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 4px;
+    display: inline-block;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Estilo del botón de modo noche */
+.theme-btn {
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    background: var(--bg-card);
+    color: var(--text-main);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
