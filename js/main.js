@@ -1,3 +1,5 @@
+//main.js
+
 const btn = document.getElementById('toggle-theme');
 
 btn.addEventListener('click', () => {

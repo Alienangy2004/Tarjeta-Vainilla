@@ -1,17 +1,19 @@
+//app.vue
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const isDark = ref(false)
 
 // Función para cambiar entre modo claro y oscuro
 const toggleTheme = () => {
   isDark.value = !isDark.value
+  // Aplicamos el atributo al elemento raíz para que el CSS responda
   document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
 }
 </script>
 
 <template>
-  <div>
+  <div class="main-layout">
     <button @click="toggleTheme" class="theme-btn">
       {{ isDark ? '☀️ Modo Claro' : '🌙 Modo Noche' }}
     </button>
@@ -37,3 +39,12 @@ const toggleTheme = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+</style>
