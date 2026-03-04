@@ -1,72 +1,61 @@
 /* assets/css/main.css*/
-/* Variables y Configuración de Temas */
-:root {
-    --bg-body: #f0f2f5;
-    /* Fondo dinámico claro: Tonos azules y grises suaves */
-    --bg-gradient: linear-gradient(-45deg, #e0eafc, #cfdef3, #e9ecef, #f0f2f5);
-    --bg-card: #ffffff;
-    --text-main: #333333;
-    --text-sub: #666666;
-    --primary-color: #007bff;
-    --secondary-bg: #e9ecef;
-}
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap');
+
+:root {
+    /* MODO DÍA - Estilo suave y dinámico */
+    --bg-gradient: linear-gradient(-45deg, #e0eafc, #cfdef3, #e9ecef, #f0f2f5);
+    --bg-card-top: #33a1fd;
+    --bg-card-bottom: #ffffff;
+    --text-main: #333;
+    --accent-neon: #289bb8;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
 
 [data-theme="dark"] {
-    --bg-body: #18191a;
-    /* Fondo dinámico oscuro: Tonos negros y azul medianoche */
-    --bg-gradient: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #001f3f, #001122);
-    --bg-card: #242526;
+    /* MODO NOCHE - Estilo Cyberpunk/Neon */
+    --bg-gradient: linear-gradient(-45deg, #30142b, #2772a1, #0f172a, #020617);
+    --bg-card-top: #007bff;
+    --bg-card-bottom: #242526;
     --text-main: #e4e6eb;
-    --text-sub: #b0b3b8;
-    --secondary-bg: #3a3b3c;
+    --accent-neon: #289bb8;
+    --shadow: rgba(0, 0, 0, 0.6);
 }
 
-/* Base del Cuerpo con Animación */
-body {
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg-gradient);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: background 0.4s ease;
+    font-family: 'Poppins', sans-serif;
 }
 
-@keyframes gradientAnimation {
+body {
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.8s ease; /* Transición suave entre modos */
+}
+
+@keyframes gradientFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Estilos de la Tarjeta */
 .card {
-    /* Color de fondo con transparencia (RGBA) */
-    background: rgba(255, 255, 255, 0.1); 
-    
-    /* El truco del cristal: desenfoque del fondo */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    /* Borde fino para simular el canto del vidrio */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    
     width: 350px;
-    border-radius: 20px; /* Bordes un poco más redondeados lucen mejor */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
     overflow: hidden;
     text-align: center;
-    padding-bottom: 20px;
-    transition: transform 0.3s ease;
+    background-color: var(--bg-card-bottom);
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: var(--bg-card-top);
     color: white;
     padding: 30px 20px;
 }
@@ -76,57 +65,62 @@ header {
     height: 90px;
     background-color: white;
     border-radius: 50%;
-    margin: 0 auto 15px; 
-    border: 3px solid rgba(255,255,255,0.3);
-
+    margin: 0 auto 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background-image: url('/tu_foto.jpeg'); /* Tu archivo jpeg */
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
     padding: 20px;
     color: var(--text-main);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.skills {
-    margin: 15px 0;
+    background-color: var(--bg-card-bottom);
 }
 
 .skills span {
-    background: var(--secondary-bg);
-    color: var(--text-main);
+    background: #e9ecef;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
     margin: 4px;
     display: inline-block;
+    color: #333;
 }
 
-.btn {
+[data-theme="dark"] .skills span {
+    background: #3a3b3c;
+    color: #e4e6eb;
+}
+
+/* BOTÓN NEON */
+.btn-neon {
+    position: relative;
     display: inline-block;
-    margin-top: 10px;
-    padding: 12px 30px;
-    background-color: var(--primary-color);
-    color: white;
+    padding: 10px 20px;
+    color: var(--accent-neon);
     text-decoration: none;
-    border-radius: 25px;
-    transition: transform 0.2s, background 0.3s;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-/* Botón de cambio de tema */
-.theme-btn {
-    position: absolute;
-    top: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 20px;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 15px;
+    background: transparent;
     border: none;
-    background: var(--bg-card);
-    color: var(--text-main);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 10;
+    cursor: pointer;
+    letter-spacing: 2px;
 }
+
+.btn-neon:hover {
+    background: var(--accent-neon);
+    color: #fff;
+    box-shadow: 0 0 25px var(--accent-neon);
+}
+
+.btn-neon span { position: absolute; display: block; }
+.btn-neon span:nth-child(1) { top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-neon)); animation: btn-anim1 1s linear infinite; }
+@keyframes btn-anim1 { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+.btn-neon span:nth-child(2) { top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, var(--accent-neon)); animation: btn-anim2 1s linear infinite; animation-delay: .25s; }
+@keyframes btn-anim2 { 0% { top: -100%; } 50%, 100% { top: 100%; } }
+.btn-neon span:nth-child(3) { bottom: 0; right: -100%; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, var(--accent-neon)); animation: btn-anim3 1s linear infinite; animation-delay: .5s; }
+@keyframes btn-anim3 { 0% { right: -100%; } 50%, 100% { right: 100%; } }
+.btn-neon span:nth-child(4) { bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(360deg, transparent, var(--accent-neon)); animation: btn-anim4 1s linear infinite; animation-delay: .75s; }
+@keyframes btn-anim4 { 0% { bottom: -100%; } 50%, 100% { bottom: 100%; } }

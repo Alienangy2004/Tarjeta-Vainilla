@@ -1,28 +1,28 @@
-//app.vue
 <script setup>
 import { ref } from 'vue'
 
 const isDark = ref(false)
 
-// Función para cambiar entre modo claro y oscuro
 const toggleTheme = () => {
   isDark.value = !isDark.value
-  // Aplicamos el atributo al elemento raíz para que el CSS responda
   document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
 }
 </script>
 
 <template>
-  <div class="main-layout">
-    <button @click="toggleTheme" class="theme-btn">
-      {{ isDark ? '☀️ Modo Claro' : '🌙 Modo Noche' }}
-    </button>
+  <div class="page-wrapper">
+    <div class="theme-toggle">
+      <button @click="toggleTheme" class="btn-neon">
+        <span></span><span></span><span></span><span></span>
+        {{ isDark ? '☀️ Modo Día' : '🌙 Modo Noche' }}
+      </button>
+    </div>
 
     <div class="card">
       <header>
         <div class="profile-img"></div>
         <h1>Martinez Sanchez Angel Armando</h1>
-        <p>Ingeniero de Software</p>
+        <p class="subtitle">Ingeniero de Software</p>
       </header>
 
       <div class="container">
@@ -34,17 +34,28 @@ const toggleTheme = () => {
           <span>MySQL</span>
         </div>
         
-        <a href="#" class="btn">Contactar</a>
+        <a href="mailto:tuemail@ejemplo.com" class="btn-neon">
+          <span></span><span></span><span></span><span></span>
+          Contactar
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.main-layout {
+.page-wrapper {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 </style>
