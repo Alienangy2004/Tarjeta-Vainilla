@@ -14,7 +14,7 @@ const toggleTheme = () => {
     <div class="theme-toggle">
       <button @click="toggleTheme" class="btn-neon">
         <span></span><span></span><span></span><span></span>
-        {{ isDark ? '☀️ Modo Día' : '🌙 Modo Noche' }}
+        {{ isDark ? '☀️ Modo Claro' : '🌙 Modo Noche' }}
       </button>
     </div>
 
@@ -57,5 +57,10 @@ const toggleTheme = () => {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+/* Forzar que la tarjeta no use flex interno para el layout de los hijos */
+.card {
+  display: block;
 }
 </style>

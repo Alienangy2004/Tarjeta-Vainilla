@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap');
 
 :root {
-    /* MODO DÍA - Estilo suave y dinámico */
-    --bg-gradient: linear-gradient(-45deg, #e0eafc, #cfdef3, #e9ecef, #f0f2f5);
+    /* MODO DÍA - Con tus nuevos colores */
+    --bg-gradient: linear-gradient(-45deg, #fff0c9, #ffc9f3, #fff0c9, #ffc9f3);
     --bg-card-top: #33a1fd;
     --bg-card-bottom: #ffffff;
     --text-main: #333;
@@ -13,7 +13,7 @@
 }
 
 [data-theme="dark"] {
-    /* MODO NOCHE - Estilo Cyberpunk/Neon */
+    /* MODO NOCHE - Intacto como pediste */
     --bg-gradient: linear-gradient(-45deg, #30142b, #2772a1, #0f172a, #020617);
     --bg-card-top: #007bff;
     --bg-card-bottom: #242526;
@@ -32,11 +32,11 @@ html, body {
 body {
     background: var(--bg-gradient);
     background-size: 400% 400%;
-    animation: gradientFlow 15s ease infinite;
+    animation: gradientFlow 10s ease infinite; /* Animación de tus nuevos colores */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.8s ease; /* Transición suave entre modos */
+    transition: background 0.8s ease;
 }
 
 @keyframes gradientFlow {
@@ -45,6 +45,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+/* Tarjeta y Perfil */
 .card {
     width: 350px;
     border-radius: 15px;
@@ -67,7 +68,7 @@ header {
     border-radius: 50%;
     margin: 0 auto 15px;
     border: 3px solid rgba(255, 255, 255, 0.3);
-    background-image: url('/tu_foto.jpeg'); /* Tu archivo jpeg */
+    background-image: url('/tu_foto.jpeg'); /* Asegúrate que esté en /public */
     background-size: cover;
     background-position: center;
 }
@@ -85,7 +86,6 @@ header {
     font-size: 0.8rem;
     margin: 4px;
     display: inline-block;
-    color: #333;
 }
 
 [data-theme="dark"] .skills span {
@@ -93,7 +93,7 @@ header {
     color: #e4e6eb;
 }
 
-/* BOTÓN NEON */
+/* Botones Neón */
 .btn-neon {
     position: relative;
     display: inline-block;
