@@ -1,39 +1,26 @@
-<script setup>
-import { ref } from 'vue'
-
-const isDark = ref(false)
-
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
-}
-</script>
-
 <template>
   <div class="page-wrapper">
-    <div class="theme-toggle">
-      <button @click="toggleTheme" class="btn-neon">
-        <span></span><span></span><span></span><span></span>
-        {{ isDark ? '☀️ Modo Claro' : '🌙 Modo Noche' }}
-      </button>
+    <!-- Componente de cambio de tema -->
+    <div class="theme-toggle-container">
+      <ColorModeButton />
     </div>
 
     <div class="card">
-      <header>
-        <div class="profile-img"></div>
-        <h1>Martinez Sanchez Angel Armando</h1>
-        <p class="subtitle">Ingeniero de Software</p>
-      </header>
+      <!-- Componente de Encabezado -->
+      <ProfileHeader />
 
       <div class="container">
-        <h3>Mis Habilidades</h3>
+        <h3>Información Personal</h3>
+        <p><strong>Nivel de Inglés:</strong> Intermedio</p>
+        
+        <!-- Componente de Habilidades (puedes crear uno más si gustas) -->
         <div class="skills">
           <span>Python</span>
           <span>Flutter</span>
           <span>Node.js</span>
           <span>MySQL</span>
         </div>
-        
+
         <a href="mailto:tuemail@ejemplo.com" class="btn-neon">
           <span></span><span></span><span></span><span></span>
           Contactar
@@ -43,24 +30,38 @@ const toggleTheme = () => {
   </div>
 </template>
 
-<style scoped>
+<style>
+/* Importamos el CSS global */
+@import url('~/assets/css/main.css');
+
 .page-wrapper {
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.theme-toggle-container {
+  margin-bottom: 20px;
 }
 
-/* Forzar que la tarjeta no use flex interno para el layout de los hijos */
-.card {
-  display: block;
+.container {
+  padding: 20px;
+  color: var(--text-main);
+}
+
+.skills span {
+  background: #e9ecef;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 4px;
+  display: inline-block;
+}
+
+[data-theme="dark"] .skills span {
+  background: #3a3b3c;
+  color: #e4e6eb;
 }
 </style>

@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap');
 
 :root {
-    /* MODO DÍA - Con tus nuevos colores */
     --bg-gradient: linear-gradient(-45deg, #fff0c9, #ffc9f3, #fff0c9, #ffc9f3);
     --bg-card-top: #33a1fd;
     --bg-card-bottom: #ffffff;
@@ -13,7 +12,6 @@
 }
 
 [data-theme="dark"] {
-    /* MODO NOCHE - Intacto como pediste */
     --bg-gradient: linear-gradient(-45deg, #30142b, #2772a1, #0f172a, #020617);
     --bg-card-top: #007bff;
     --bg-card-bottom: #242526;
@@ -22,21 +20,13 @@
     --shadow: rgba(0, 0, 0, 0.6);
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
     background: var(--bg-gradient);
     background-size: 400% 400%;
-    animation: gradientFlow 10s ease infinite; /* Animación de tus nuevos colores */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    animation: gradientFlow 10s ease infinite;
+    font-family: 'Poppins', sans-serif;
     transition: background 0.8s ease;
+    margin: 0;
 }
 
 @keyframes gradientFlow {
@@ -44,8 +34,7 @@ body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
-/* Tarjeta y Perfil */
+/* Estilos de la tarjeta */
 .card {
     width: 350px;
     border-radius: 15px;
@@ -54,73 +43,3 @@ body {
     text-align: center;
     background-color: var(--bg-card-bottom);
 }
-
-header {
-    background-color: var(--bg-card-top);
-    color: white;
-    padding: 30px 20px;
-}
-
-.profile-img {
-    width: 90px;
-    height: 90px;
-    background-color: white;
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    background-image: url('/tu_foto.jpeg'); /* Asegúrate que esté en /public */
-    background-size: cover;
-    background-position: center;
-}
-
-.container {
-    padding: 20px;
-    color: var(--text-main);
-    background-color: var(--bg-card-bottom);
-}
-
-.skills span {
-    background: #e9ecef;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin: 4px;
-    display: inline-block;
-}
-
-[data-theme="dark"] .skills span {
-    background: #3a3b3c;
-    color: #e4e6eb;
-}
-
-/* Botones Neón */
-.btn-neon {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: var(--accent-neon);
-    text-decoration: none;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 15px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 2px;
-}
-
-.btn-neon:hover {
-    background: var(--accent-neon);
-    color: #fff;
-    box-shadow: 0 0 25px var(--accent-neon);
-}
-
-.btn-neon span { position: absolute; display: block; }
-.btn-neon span:nth-child(1) { top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-neon)); animation: btn-anim1 1s linear infinite; }
-@keyframes btn-anim1 { 0% { left: -100%; } 50%, 100% { left: 100%; } }
-.btn-neon span:nth-child(2) { top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, var(--accent-neon)); animation: btn-anim2 1s linear infinite; animation-delay: .25s; }
-@keyframes btn-anim2 { 0% { top: -100%; } 50%, 100% { top: 100%; } }
-.btn-neon span:nth-child(3) { bottom: 0; right: -100%; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, var(--accent-neon)); animation: btn-anim3 1s linear infinite; animation-delay: .5s; }
-@keyframes btn-anim3 { 0% { right: -100%; } 50%, 100% { right: 100%; } }
-.btn-neon span:nth-child(4) { bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(360deg, transparent, var(--accent-neon)); animation: btn-anim4 1s linear infinite; animation-delay: .75s; }
-@keyframes btn-anim4 { 0% { bottom: -100%; } 50%, 100% { bottom: 100%; } }
