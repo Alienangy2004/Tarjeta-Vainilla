@@ -1,67 +1,59 @@
+<script setup>
+// No necesitamos importar los componentes manualmente, 
+// Nuxt los detecta automáticamente en la carpeta /components
+</script>
+
 <template>
   <div class="page-wrapper">
-    <!-- Componente de cambio de tema -->
-    <div class="theme-toggle-container">
+    <div class="theme-toggle-wrapper">
       <ColorModeButton />
     </div>
 
-    <div class="card">
-      <!-- Componente de Encabezado -->
+    <main class="card">
       <ProfileHeader />
 
-      <div class="container">
-        <h3>Información Personal</h3>
-        <p><strong>Nivel de Inglés:</strong> Intermedio</p>
-        
-        <!-- Componente de Habilidades (puedes crear uno más si gustas) -->
-        <div class="skills">
-          <span>Python</span>
-          <span>Flutter</span>
-          <span>Node.js</span>
-          <span>MySQL</span>
-        </div>
-
-        <a href="mailto:tuemail@ejemplo.com" class="btn-neon">
-          <span></span><span></span><span></span><span></span>
-          Contactar
-        </a>
-      </div>
-    </div>
+      <SkillsContainer />
+    </main>
   </div>
 </template>
 
 <style>
-/* Importamos el CSS global */
+/* Importación del CSS global con las variables de color y animaciones */
 @import url('~/assets/css/main.css');
 
 .page-wrapper {
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.theme-toggle-container {
-  margin-bottom: 20px;
-}
-
-.container {
   padding: 20px;
-  color: var(--text-main);
+  box-sizing: border-box;
 }
 
-.skills span {
-  background: #e9ecef;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin: 4px;
-  display: inline-block;
+.theme-toggle-wrapper {
+  margin-bottom: 30px;
 }
 
-[data-theme="dark"] .skills span {
-  background: #3a3b3c;
-  color: #e4e6eb;
+/* Estilos base de la tarjeta que no dependen de componentes pequeños */
+.card {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--shadow);
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--bg-card-bottom);
+  transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Transición suave para el cambio de colores en toda la página */
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 </style>
