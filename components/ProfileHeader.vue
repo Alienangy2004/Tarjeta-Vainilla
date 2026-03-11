@@ -1,3 +1,5 @@
+//components/ProfileHeader.vue
+
 <template>
   <header class="header-profile">
     <div class="profile-img"></div>

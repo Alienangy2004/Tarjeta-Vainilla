@@ -1,3 +1,5 @@
+//components/SkillsContainer.vue
+
 <template>
   <div class="skills-section">
     <h3>Mis Habilidades</h3>

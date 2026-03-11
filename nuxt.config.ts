@@ -1,12 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // Importación global de tus estilos CSS para que el fondo dinámico funcione en toda la app
-  css: [
-    '~/assets/css/main.css'
-  ],
-
-  // Configuración del encabezado de la página (Head)
+  // 1. Configuración de la ruta base para GitHub Pages
+  // Esto asegura que el CSS y las imágenes se busquen en la subcarpeta correcta
   app: {
+    baseURL: '/Tarjeta-Vainilla/', // IMPORTANTE: Debe coincidir con el nombre de tu repo en GitHub
     head: {
       title: 'Tarjeta de Presentación - Angel Martinez',
       meta: [
@@ -16,7 +13,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        // Importación de la fuente Poppins para que los estilos del CSS carguen correctamente
         { 
           rel: 'stylesheet', 
           href: 'https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap' 
@@ -25,7 +21,12 @@ export default defineNuxtConfig({
     }
   },
 
-  // Configuración técnica y de desarrollo
+  // 2. Importación global de tus estilos CSS
+  css: [
+    '~/assets/css/main.css'
+  ],
+
+  // 3. Configuración técnica y de desarrollo
   compatibilityDate: '2024-11-01',
   
   devtools: { 
