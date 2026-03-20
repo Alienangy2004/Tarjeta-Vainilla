@@ -1,4 +1,4 @@
-//components/ColorModeButton.vue
+//ColorModeButton.vue
 
 <script setup>
 const isDark = ref(false)

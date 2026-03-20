@@ -1,4 +1,4 @@
-//components/ProfileHeader.vue
+//ProfileHeader.vue
 
 <template>
   <header class="header-profile">

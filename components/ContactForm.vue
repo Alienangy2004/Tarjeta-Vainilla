@@ -1,3 +1,5 @@
+//contactForm.vue
+
 <template>
   <div class="form-container">
     <input type="email" placeholder="Tu correo electrónico" class="neon-input" required>

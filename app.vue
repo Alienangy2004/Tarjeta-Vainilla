@@ -1,17 +1,24 @@
+//app.vue
+
 <script setup>
-// No necesitamos importar los componentes manualmente, 
-// Nuxt los detecta automáticamente en la carpeta /components
+// Nuxt 3 detecta automáticamente los componentes en la carpeta /components/
+// No es necesario importarlos aquí manualmente.
 </script>
 
 <template>
   <div class="page-wrapper">
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+    />
+
     <div class="theme-toggle-wrapper">
       <ColorModeButton />
     </div>
 
     <main class="card">
       <ProfileHeader />
-
+      
       <SkillsContainer />
     </main>
   </div>
@@ -36,7 +43,7 @@
   margin-bottom: 30px;
 }
 
-/* Estilos base de la tarjeta que no dependen de componentes pequeños */
+/* Estilos base de la tarjeta */
 .card {
   width: 100%;
   max-width: 380px;
@@ -52,7 +59,7 @@
   transform: translateY(-5px);
 }
 
-/* Transición suave para el cambio de colores en toda la página */
+/* Transición suave para el cambio de colores (Modo Oscuro/Claro) */
 * {
   transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
