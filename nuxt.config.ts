@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // 1. Configuración de la ruta base para GitHub Pages
-  // Esto asegura que el CSS y las imágenes se busquen en la subcarpeta correcta
   app: {
-    baseURL: '/Tarjeta-Vainilla/', // IMPORTANTE: Debe coincidir con el nombre de tu repo en GitHub
+    // IMPORTANTE: Si tu repo se llama 'Tulipan3D', cambia esto a '/Tulipan3D/'
+    baseURL: '/Tarjeta-Vainilla/', 
     head: {
       title: 'Tarjeta de Presentación - Angel Martinez',
       meta: [
@@ -21,12 +21,17 @@ export default defineNuxtConfig({
     }
   },
 
-  // 2. Importación global de tus estilos CSS
+  // 2. Importación global de estilos
   css: [
     '~/assets/css/main.css'
   ],
 
-  // 3. Configuración técnica y de desarrollo
+  // 3. CONFIGURACIÓN PARA THREE.JS (Añadido para corregir posibles errores)
+  build: {
+    transpile: ['three']
+  },
+
+  // 4. Configuración técnica
   compatibilityDate: '2024-11-01',
   
   devtools: { 
