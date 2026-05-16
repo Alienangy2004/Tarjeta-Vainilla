@@ -1,120 +1,70 @@
 <template>
-  <div class="main-container">
-    
-    <div class="top-bar">
-      <ColorModeButton />
-    </div>
+  <main class="main-container">
+    <div class="perfil-tarjeta">
+      <div class="top-actions">
+        <ColorModeButton />
+      </div>
 
-    <div class="card card-wrapper">
+      <ProfileHeader />
+
       <div class="card-content">
-        <ProfileHeader />
-        
         <SkillsContainer />
-        
-        <div class="section-3d-toggle">
-          <button @click="mostrar3D = !mostrar3D" class="btn-toggle">
-            {{ mostrar3D ? 'Cerrar Vista 3D' : 'Ver Armadillo APC en 3D' }}
-          </button>
 
-          <transition name="fade">
-            <div v-if="mostrar3D" class="visor-container">
-              <ClientOnly>
-                <template #fallback>
-                  <div class="loading">Iniciando motor 3D...</div>
-                </template>
-                <LazyArmadilo />
-              </ClientOnly>
-            </div>
-          </transition>
-        </div>
+        <div class="divider"></div>
 
-        <div class="social-section">
-          <SocialLinks />
-        </div>
+        <ClientOnly>
+          <Armadilo />
+        </ClientOnly>
+
+        <div class="divider"></div>
+
+        <SocialLinks />
+        <ContactForm />
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-const mostrar3D = ref(false)
-</script>
-
-<style scoped>
-/* Contenedor principal: Usamos la transición de fondo de tu body */
+<style>
 .main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 40px 20px;
+}
+
+.perfil-tarjeta {
+  width: 100%;
+  max-width: 550px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px 0;
+}
+
+.card-content {
+  padding: 20px 35px 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 15px;
 }
 
-.top-bar {
-  width: 100%;
-  max-width: 350px; /* Alineado al ancho de tu .card */
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+.divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  margin: 10px 0;
 }
 
-/* Extendemos tu clase .card para asegurar el centrado */
-.card-wrapper {
-  margin: 0 auto;
-  transition: background-color 0.8s ease, box-shadow 0.8s ease;
+[data-theme="dark"] .divider {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Sección 3D: Usamos variables para que cambie el color de fondo */
-.section-3d-toggle {
-  padding: 20px;
-  text-align: center;
-  background-color: var(--shadow); /* Usamos el color de sombra suave como fondo secundario */
-  border-top: 1px solid var(--shadow);
-}
-
-.btn-toggle {
-  background-color: var(--bg-card-top); /* Usamos el azul de tu cabecera */
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-toggle:hover {
-  filter: brightness(1.2);
-  transform: translateY(-2px);
-}
-
-.visor-container {
-  margin-top: 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--shadow);
-  background-color: var(--bg-card-bottom);
-}
-
-.social-section {
-  padding: 10px 0 20px 0;
-  color: var(--text-main);
-}
-
-/* Transiciones */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.4s ease;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
-
-.loading {
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-main);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
