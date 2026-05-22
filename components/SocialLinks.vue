@@ -32,6 +32,15 @@ const enviarMensajeConConfirmacion = () => {
         <i class="fab fa-instagram"></i>
         <span>Instagram</span>
       </a>
+
+      <a href="https://chess-mu-six-57.vercel.app/" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+        <i class="fas fa-envelope"></i>
+        <span>CHESS</span>
+
+      </a>. <a href="https://lootgo-theta.vercel.app/" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+        <i class="fas fa-envelope"></i>
+        <span>LOOTGO</span>
+      </a>
     </div>
 
     <div class="form-submit-section">
